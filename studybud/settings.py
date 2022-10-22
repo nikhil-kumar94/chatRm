@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-oyw_n8_&=3e!t)ur0q^rn)*+jf#9ydox_3z)!2+jexvsd035w*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG =False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','chatrm.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -46,7 +47,6 @@ AUTH_USER_MODEL = 'base.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -60,8 +60,8 @@ ROOT_URLCONF = 'studybud.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/Users/nikhilkumar/Desktop/Discord_clone/template',
-        '/Users/nikhilkumar/Desktop/Discord_clone/base/template'],
+        'DIRS': [BASE_DIR /'template',
+        BASE_DIR /'base/template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,7 +123,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-STATIC_ROOT = "app-root/repo/wsgi/static"
+
 STATIC_URL = '/static/'
 MEDIA_URL='/images/'
 STATICFILES_DIR=[ BASE_DIR /'/static']
